@@ -1,11 +1,56 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import Welcome from '../components/home-page/welcome.tsx'
+import {getCollection} from 'astro:content'
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const post = await getCollection('post')
 ---
 
-<Layout>
-	<Welcome />
+<Layout title={`Inicio - C-Med Days Badalona 2026`}>
+	<Welcome/>
+	{
+		post.map(item =>{
+			return(
+				<article class="my-10 max-w-4xl mx-auto p-4 border rounded-lg shadow-md">
+				{/* Imagen principal */}
+				<img 
+					src={item.data.img} 
+					alt={item.data.title} 
+					class="w-full h-auto rounded-md mb-4 object-cover"
+				/>
+
+				{/* Título */}
+				<h2 class="text-2xl font-bold mb-2">{item.data.title}</h2>
+
+				{/* Subtítulo */}
+				<h3 class="text-lg font-medium mb-4">{item.data.subtitle}</h3>
+
+				{/* Contenido en lista */}
+				<ul class="list-disc list-inside mb-6 space-y-2">
+					{item.data.content?.map((line: string, index: number) => (
+					<li key={index}>{line}</li>
+					))}
+				</ul>
+
+				{/* Imágenes adicionales */}
+				<div 
+					class={`flex flex-wrap gap-4 ${
+					item.data.imgsContent?.length === 1 ? '' : 'justify-evenly'
+					}`}
+				>
+					{item.data.imgsContent?.map((imgSrc: string, index: number) => (
+					<img
+						key={index}
+						src={imgSrc}
+						alt={`${item.data.title} ${index + 1}`}
+						class={`rounded-md ${
+						item.data.imgsContent.length === 1 ? 'w-full' : 'w-[48%] sm:w-[30%]'
+						} object-cover`}
+					/>
+					))}
+				</div>
+				</article>
+			)
+		})
+	}
 </Layout>
