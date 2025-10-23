@@ -80,7 +80,7 @@ const Formulario = () => {
 
       <button
         type="submit"
-        className="bg-linear-to-t from-sky-500 to-indigo-500 cursor-pointer text-white rounded-[32px] py-3 px-6 text-sm font-medium hover:bg-appAccent/90 transition-colors w-full lg:w-auto"
+        className="bg-green-700 text-white rounded-[32px] py-3 px-6 text-sm font-medium hover:bg-appAccent/90 transition-colors w-full lg:w-auto"
       >
         Enviar
       </button>
