@@ -1,67 +1,346 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Welcome from '../components/home-page/welcome.tsx'
-import {getCollection} from 'astro:content'
-import dotenv from 'dotenv'
-
-const getposts = await getCollection('post')
-const post = getposts.sort((a, b) => a.slug.localeCompare(b.slug));
-
-dotenv.config({ path: '/custom/path/to/.env' })
-
 ---
 
 <Layout title={`Inicio - C-Med Days Badalona 2026`}>
 	<Welcome/>
-	<div class="w-full">
-		{
-			post.map(item =>{
-				return(
-					<article class="my-5 max-w-4xl mx-auto p-3 border-b-1 border-gray-400">
-					{/* Imagen principal */}
-
-					{item.data.img && 
-						<img 
-							src={item.data.img} 
-							alt={item.data.title} 
-							class="h-80 w-full object-cover rounded-md mb-4"
-						/>
-					}
-					
-
-					{/* Título */}
-					<h2 class="text-5xl mb-2 font-sans font-extrabold text-indigo-500">{item.data.title}</h2>
-
-					{/* Subtítulo */}
-					<h3 class="text-3xl mb-4 font-sans font-extrabold text-gray-900">{item.data.subtitle && item.data.subtitle }</h3>
-
-					{/* Contenido en lista */}
-					
-					<div class="markdown-content" set:html={item.rendered?.html}></div>
-					
-					{/* Imágenes adicionales */}
-					<div
-					class={`flex mt-10 flex-wrap gap-2 ${ // antes gap-4
-						item.data.imgsContent?.length === 1 ? '' : 'justify-evenly'
-					}`}
-					>
-					{item.data.imgsContent?.map((imgSrc: string, index: number) => (
-						<img
-						src={imgSrc}
-						alt={`${item.data.title} ${index + 1}`}
-						class={`rounded-md ${
-							item.data.imgsContent.length === 1
-							? 'h-96 w-full' // antes h-80
-							: 'w-[100%] sm:w-[32%]' // antes 80% y 30%
-						} object-cover`}
-						/>
-					))}
+	
+	<!-- Content Sections -->
+	<div class="max-w-6xl mx-auto px-6 py-12 space-y-20">
+		
+		<!-- Badalona Section -->
+		<section class="flex flex-col lg:flex-row items-center gap-12">
+			<div class="flex-1">
+				<img 
+					src="img/badalona.webp" 
+					alt="Badalona"
+					class="w-full h-96 object-cover"
+				/>
+			</div>
+			<div class="flex-1 space-y-6">
+				<div>
+					<h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+						Badalona
+					</h2>
+					<p class="text-xl text-gray-600 leading-relaxed">
+						Posicionamiento como referente Internacional de eventos
+					</p>
+				</div>
+				<div class="bg-gray-50 p-6">
+					<p class="text-lg text-gray-700 leading-relaxed">
+						Badalona puede aprovechar el vacío que dejan las ferias que se van de Barcelona, capturando un ecosistema de 25 años de experiencia en un sector que crece más del 20% anual. Es la oportunidad perfecta para crear un hub biotecnológico medicinal de referencia mundial, siguiendo el modelo de Berlín.
+					</p>
+					<div class="mt-4 inline-block px-3 py-1 bg-orange-100 text-orange-800 text-sm font-medium">
+						25 años de experiencia
 					</div>
+				</div>
+			</div>
+		</section>
 
-					</article>
-				)
-			})
-		}
+		<!-- La Oportunidad Section -->
+		<section class="flex flex-col lg:flex-row-reverse items-center gap-12">
+			<div class="flex-1">
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+					<img 
+						src="img/spannabis-2.webp" 
+						alt="Spannabis 1"
+						class="w-full h-64 object-cover"
+					/>
+					<img 
+						src="img/spanabis.jpg" 
+						alt="Spannabis 2"
+						class="w-full h-64 object-cover"
+					/>
+				</div>
+			</div>
+			<div class="flex-1 space-y-6">
+				<div>
+					<h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+						La Oportunidad
+					</h2>
+					<p class="text-xl text-gray-600 leading-relaxed">
+						Las ferias más importantes de Europa de cannabis medicinal y terapéutico se van de Barcelona a Bilbao y Berlín
+					</p>
+				</div>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+					<div class="border-l-4 border-orange-500 pl-4">
+						<h3 class="text-lg font-semibold text-gray-900 mb-1">ICBC (Berlín/Barcelona)</h3>
+						<div class="text-2xl font-bold text-gray-900 mb-1">5.000+ profesionales</div>
+						<p class="text-sm text-gray-600">80 países, 350+ expositores</p>
+					</div>
+					<div class="border-l-4 border-orange-500 pl-4">
+						<h3 class="text-lg font-semibold text-gray-900 mb-1">Spannabis</h3>
+						<div class="text-2xl font-bold text-gray-900 mb-1">25.000+ participantes</div>
+						<p class="text-sm text-gray-600">50 países, 8M€ impacto económico</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- C-Días Section -->
+		<section class="flex flex-col lg:flex-row items-center gap-12">
+			<div class="flex-1">
+				<img 
+					src="img/cannabis.jpg" 
+					alt="C-Días"
+					class="w-full h-96 object-cover"
+				/>
+			</div>
+			<div class="flex-1 space-y-6">
+				<div>
+					<h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+						C-Días y Cifras de Impacto
+					</h2>
+					<p class="text-xl text-gray-600 leading-relaxed">
+						C-Días: La Universidad Pompeu Fabra creó hace varios años el "Cannabis Hub", un referente en la investigación del cannabis medicinal
+					</p>
+				</div>
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+					<div class="border-l-4 border-orange-500 pl-4">
+						<h3 class="text-lg font-semibold text-gray-900 mb-1">Asistencia 2024</h3>
+						<div class="text-2xl font-bold text-gray-900 mb-1">3.900+ profesionales</div>
+					</div>
+					<div class="border-l-4 border-orange-500 pl-4">
+						<h3 class="text-lg font-semibold text-gray-900 mb-1">Expositores</h3>
+						<div class="text-2xl font-bold text-gray-900 mb-1">200+ empresas</div>
+					</div>
+					<div class="border-l-4 border-orange-500 pl-4">
+						<h3 class="text-lg font-semibold text-gray-900 mb-1">Innovación</h3>
+						<div class="text-2xl font-bold text-gray-900 mb-1">C-Investors Day</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Sentido del Proyecto Section -->
+		<section class="flex flex-col lg:flex-row-reverse items-center gap-12">
+			<div class="flex-1">
+				<img 
+					src="img/bada2.jpg" 
+					alt="Sentido del Proyecto"
+					class="w-full h-96 object-cover"
+				/>
+			</div>
+			<div class="flex-1 space-y-6">
+				<div>
+					<h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+						Sentido del Proyecto
+					</h2>
+					<p class="text-xl text-gray-600 leading-relaxed">
+						Barcelona es la ciudad más importante de Europa en el sector y la segunda en el mundo, un referente internacional que ha creado un ecosistema alrededor de la feria que queda vacío y Badalona puede aprovechar.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- Sinergias locales Section -->
+		<section class="flex flex-col lg:flex-row items-center gap-12">
+			<div class="flex-1">
+				<img 
+					src="img/sinergia.jpg" 
+					alt="Sinergias locales"
+					class="w-full h-96 object-cover"
+				/>
+			</div>
+			<div class="flex-1 space-y-6">
+				<div>
+					<h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+						Sinergias locales
+					</h2>
+					<p class="text-xl text-gray-600 leading-relaxed">
+						Es una oportunidad única para crear un HUB de investigación e inversión medicinal/científico
+					</p>
+				</div>
+				<div class="bg-gray-50 p-6">
+					<h3 class="text-xl font-semibold text-gray-900 mb-4">Instituciones clave:</h3>
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+						<div class="flex items-center space-x-2">
+							<div class="w-1.5 h-1.5 bg-orange-500 rounded-full"></div>
+							<span class="text-gray-700">Hospital Can Ruti</span>
+						</div>
+						<div class="flex items-center space-x-2">
+							<div class="w-1.5 h-1.5 bg-orange-500 rounded-full"></div>
+							<span class="text-gray-700">Instituto Guttman</span>
+						</div>
+						<div class="flex items-center space-x-2">
+							<div class="w-1.5 h-1.5 bg-orange-500 rounded-full"></div>
+							<span class="text-gray-700">Institut Josep Carreras</span>
+						</div>
+						<div class="flex items-center space-x-2">
+							<div class="w-1.5 h-1.5 bg-orange-500 rounded-full"></div>
+							<span class="text-gray-700">Universidad de Santa Coloma</span>
+						</div>
+						<div class="flex items-center space-x-2">
+							<div class="w-1.5 h-1.5 bg-orange-500 rounded-full"></div>
+							<span class="text-gray-700">UB, UAB, UPF</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Formato y alianzas Section -->
+		<section class="text-center space-y-8">
+			<div>
+				<h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+					Formato y alianzas
+				</h2>
+				<p class="text-xl text-gray-600 leading-relaxed">
+					Impacto económico y de imagen para Badalona
+				</p>
+			</div>
+			
+			<div class="space-y-6">
+				<div class="max-w-2xl mx-auto">
+					<h3 class="text-lg font-semibold text-gray-900 mb-4">Congreso</h3>
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+						<div class="flex items-center justify-center space-x-2">
+							<div class="w-1.5 h-1.5 bg-gray-500 rounded-full"></div>
+							<span class="text-gray-700">Ponencias médicas</span>
+						</div>
+						<div class="flex items-center justify-center space-x-2">
+							<div class="w-1.5 h-1.5 bg-gray-500 rounded-full"></div>
+							<span class="text-gray-700">Paneles regulatorios</span>
+						</div>
+						<div class="flex items-center justify-center space-x-2">
+							<div class="w-1.5 h-1.5 bg-gray-500 rounded-full"></div>
+							<span class="text-gray-700">Casos de éxito</span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="max-w-2xl mx-auto">
+					<h3 class="text-lg font-semibold text-gray-900 mb-4">Startups</h3>
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+						<div class="flex items-center justify-center space-x-2">
+							<div class="w-1.5 h-1.5 bg-gray-500 rounded-full"></div>
+							<span class="text-gray-700">C-Med LaunchPad</span>
+						</div>
+						<div class="flex items-center justify-center space-x-2">
+							<div class="w-1.5 h-1.5 bg-gray-500 rounded-full"></div>
+							<span class="text-gray-700">C-Investors Day</span>
+						</div>
+						<div class="flex items-center justify-center space-x-2">
+							<div class="w-1.5 h-1.5 bg-gray-500 rounded-full"></div>
+							<span class="text-gray-700">Premios innovación</span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="max-w-2xl mx-auto">
+					<h3 class="text-lg font-semibold text-gray-900 mb-4">Exposición</h3>
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+						<div class="flex items-center justify-center space-x-2">
+							<div class="w-1.5 h-1.5 bg-gray-500 rounded-full"></div>
+							<span class="text-gray-700">Productos medicinales</span>
+						</div>
+						<div class="flex items-center justify-center space-x-2">
+							<div class="w-1.5 h-1.5 bg-gray-500 rounded-full"></div>
+							<span class="text-gray-700">Farmacéuticos</span>
+						</div>
+						<div class="flex items-center justify-center space-x-2">
+							<div class="w-1.5 h-1.5 bg-gray-500 rounded-full"></div>
+							<span class="text-gray-700">Cosmética</span>
+						</div>
+						<div class="flex items-center justify-center space-x-2">
+							<div class="w-1.5 h-1.5 bg-gray-500 rounded-full"></div>
+							<span class="text-gray-700">Tecnología</span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="max-w-2xl mx-auto">
+					<h3 class="text-lg font-semibold text-gray-900 mb-4">Ciudadano</h3>
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+						<div class="flex items-center justify-center space-x-2">
+							<div class="w-1.5 h-1.5 bg-gray-500 rounded-full"></div>
+							<span class="text-gray-700">Charlas divulgativas</span>
+						</div>
+						<div class="flex items-center justify-center space-x-2">
+							<div class="w-1.5 h-1.5 bg-gray-500 rounded-full"></div>
+							<span class="text-gray-700">Talleres terapéuticos</span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="bg-gray-50 p-6 max-w-4xl mx-auto">
+					<h3 class="text-lg font-semibold text-gray-900 mb-4">Alianzas</h3>
+					<div class="flex flex-wrap justify-center gap-2">
+						<span class="px-2 py-1 bg-gray-200 text-gray-800 text-sm">Ayuntamiento Badalona</span>
+						<span class="px-2 py-1 bg-gray-200 text-gray-800 text-sm">Generalitat</span>
+						<span class="px-2 py-1 bg-gray-200 text-gray-800 text-sm">Fira Barcelona</span>
+						<span class="px-2 py-1 bg-gray-200 text-gray-800 text-sm">Can Ruti</span>
+						<span class="px-2 py-1 bg-gray-200 text-gray-800 text-sm">UB</span>
+						<span class="px-2 py-1 bg-gray-200 text-gray-800 text-sm">UAB</span>
+						<span class="px-2 py-1 bg-gray-200 text-gray-800 text-sm">UPF</span>
+						<span class="px-2 py-1 bg-gray-200 text-gray-800 text-sm">Farmaindustria</span>
+						<span class="px-2 py-1 bg-gray-200 text-gray-800 text-sm">Biocat</span>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Impacto económico Section -->
+		<section class="text-center space-y-6">
+			<div>
+				<h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+					Impacto económico para Badalona
+				</h2>
+				<p class="text-xl text-gray-600 leading-relaxed">
+					Impacto económico y de imagen para Badalona
+				</p>
+			</div>
+			
+			<div class="bg-gray-50 p-6 max-w-4xl mx-auto">
+				<h3 class="text-xl font-semibold text-gray-900 mb-4">Mercado Global</h3>
+				<div class="grid grid-cols-2 gap-4">
+					<div class="text-center">
+						<div class="text-3xl font-bold text-gray-900">$13.000M</div>
+						<div class="text-sm text-gray-600">2023</div>
+					</div>
+					<div class="text-center">
+						<div class="text-3xl font-bold text-gray-900">$65.000M</div>
+						<div class="text-sm text-gray-600">2030</div>
+					</div>
+				</div>
+				<div class="text-center mt-4">
+					<span class="inline-block px-3 py-1 bg-orange-100 text-orange-800 text-sm font-medium">
+						Crecimiento 20% anual
+					</span>
+				</div>
+			</div>
+			
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+				<div class="border-l-4 border-gray-300 pl-4">
+					<h4 class="text-lg font-semibold text-gray-900 mb-3">España</h4>
+					<div class="space-y-1">
+						<div class="flex justify-between">
+							<span class="text-gray-600">2024:</span>
+							<span class="font-semibold">238,5M€</span>
+						</div>
+						<div class="flex justify-between">
+							<span class="text-gray-600">2025:</span>
+							<span class="font-semibold text-gray-900">358,4M€</span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="border-l-4 border-gray-300 pl-4">
+					<h4 class="text-lg font-semibold text-gray-900 mb-3">Medicamentos</h4>
+					<div class="space-y-1">
+						<div class="flex justify-between">
+							<span class="text-gray-600">Actual:</span>
+							<span class="font-semibold">27,3M€</span>
+						</div>
+						<div class="flex justify-between">
+							<span class="text-gray-600">2026:</span>
+							<span class="font-semibold text-gray-900">107,6M€</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 
 	</div>
 </Layout>
