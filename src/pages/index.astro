@@ -2,10 +2,12 @@
 import Layout from '../layouts/Layout.astro';
 import Welcome from '../components/home-page/welcome.tsx'
 import {getCollection} from 'astro:content'
+import dotenv from 'dotenv'
 
 const getposts = await getCollection('post')
 const post = getposts.sort((a, b) => a.slug.localeCompare(b.slug));
 
+dotenv.config({ path: '/custom/path/to/.env' })
 
 ---
 
@@ -62,16 +64,4 @@ const post = getposts.sort((a, b) => a.slug.localeCompare(b.slug));
 		}
 
 	</div>
-	
-	<section class='p-10 bg-linear-to-t h-max from-sky-500 to-indigo-500'>
-		<div class='h-full flex flex-col w-full items-start px-60'>
-			<ul class="h-full flex flex-col justify-evenly font-sans font-extrabold text-white text-4xl">
-				<li class="mb-15">Proyección internacional de la ciudad organizando eventos de repercusión mundial.</li>
-				<li class="mb-15">Atracción de inversión y empresas del sector biotech y farma.</li>
-				<li class="mb-15">Turismo profesional y científico, con impacto directo en hoteles, restauración y comercio local.</li>
-				<li class="mb-15">Creación de un referente anual (tipo "Cannabis Science Forum Badalona") que posicione la ciudad en el calendario global de ferias especializadas.</li>
-				<li class="mb-15">Dinamización de la economía local, generación de empleo y oportunidades para jóvenes profesionales.</li>
-			</ul>
-		</div>
-	</section>
 </Layout>

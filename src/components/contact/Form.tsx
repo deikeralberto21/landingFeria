@@ -2,7 +2,7 @@ import React, { useState, type FormEvent } from 'react';
 
 interface Formulario {
   fullName: string;
-  email: string;
+  title: string;
   phoneNumber: string;
   details: string;
 }
@@ -10,7 +10,7 @@ interface Formulario {
 const Formulario = () => {
   const [form, setForm] = useState<Formulario>({
     fullName: '',
-    email: '',
+    title: '',
     phoneNumber: '',
     details: '',
   });
@@ -42,15 +42,15 @@ const Formulario = () => {
           className="border border-[#C2C0BC] rounded-[10px] px-4 py-3 text-sm focus:outline-none focus:border-appAccent transition-colors"
         />
       </div>
-
+      
       <div className="flex flex-col">
-        <label className="mb-2 font-medium">Correo electrónico</label>
+        <label className="mb-2 font-medium">Asunto</label>
         <input
-          type="email"
-          name="email"
-          value={form.email}
+          type="text"
+          name="title"
+          value={form.title}
           onChange={handleChange}
-          placeholder="Ingresa tu correo"
+          placeholder="Asunto"
           className="border border-[#C2C0BC] rounded-[10px] px-4 py-3 text-sm focus:outline-none focus:border-appAccent transition-colors"
         />
       </div>
