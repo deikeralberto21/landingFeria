@@ -3,54 +3,75 @@ import Layout from '../layouts/Layout.astro';
 import Welcome from '../components/home-page/welcome.tsx'
 import {getCollection} from 'astro:content'
 
-const post = await getCollection('post')
+const getposts = await getCollection('post')
+const post = getposts.sort((a, b) => a.slug.localeCompare(b.slug));
+
+
 ---
 
 <Layout title={`Inicio - C-Med Days Badalona 2026`}>
 	<Welcome/>
-	{
-		post.map(item =>{
-			return(
-				<article class="my-10 max-w-4xl mx-auto p-4 border rounded-lg shadow-md">
-				{/* Imagen principal */}
-				<img 
-					src={item.data.img} 
-					alt={item.data.title} 
-					class="w-full h-auto rounded-md mb-4 object-cover"
-				/>
+	<div class="w-full">
+		{
+			post.map(item =>{
+				return(
+					<article class="my-5 max-w-4xl mx-auto p-3 border-b-1 border-gray-400">
+					{/* Imagen principal */}
 
-				{/* Título */}
-				<h2 class="text-2xl font-bold mb-2">{item.data.title}</h2>
+					{item.data.img && 
+						<img 
+							src={item.data.img} 
+							alt={item.data.title} 
+							class="h-80 w-full object-cover rounded-md mb-4"
+						/>
+					}
+					
 
-				{/* Subtítulo */}
-				<h3 class="text-lg font-medium mb-4">{item.data.subtitle}</h3>
+					{/* Título */}
+					<h2 class="text-5xl mb-2 font-sans font-extrabold text-indigo-500">{item.data.title}</h2>
 
-				{/* Contenido en lista */}
-				<ul class="list-disc list-inside mb-6 space-y-2">
-					{item.data.content?.map((line: string, index: number) => (
-					<li key={index}>{line}</li>
-					))}
-				</ul>
+					{/* Subtítulo */}
+					<h3 class="text-3xl mb-4 font-sans font-extrabold text-gray-900">{item.data.subtitle && item.data.subtitle }</h3>
 
-				{/* Imágenes adicionales */}
-				<div 
-					class={`flex flex-wrap gap-4 ${
-					item.data.imgsContent?.length === 1 ? '' : 'justify-evenly'
+					{/* Contenido en lista */}
+					
+					<div class="markdown-content" set:html={item.rendered?.html}></div>
+					
+					{/* Imágenes adicionales */}
+					<div
+					class={`flex mt-10 flex-wrap gap-2 ${ // antes gap-4
+						item.data.imgsContent?.length === 1 ? '' : 'justify-evenly'
 					}`}
-				>
+					>
 					{item.data.imgsContent?.map((imgSrc: string, index: number) => (
-					<img
-						key={index}
+						<img
 						src={imgSrc}
 						alt={`${item.data.title} ${index + 1}`}
 						class={`rounded-md ${
-						item.data.imgsContent.length === 1 ? 'w-full' : 'w-[48%] sm:w-[30%]'
+							item.data.imgsContent.length === 1
+							? 'h-96 w-full' // antes h-80
+							: 'w-[100%] sm:w-[32%]' // antes 80% y 30%
 						} object-cover`}
-					/>
+						/>
 					))}
-				</div>
-				</article>
-			)
-		})
-	}
+					</div>
+
+					</article>
+				)
+			})
+		}
+
+	</div>
+	
+	<section class='p-10 bg-linear-to-t h-max from-sky-500 to-indigo-500'>
+		<div class='h-full flex flex-col w-full items-start px-60'>
+			<ul class="h-full flex flex-col justify-evenly font-sans font-extrabold text-white text-4xl">
+				<li class="mb-15">Proyección internacional de la ciudad organizando eventos de repercusión mundial.</li>
+				<li class="mb-15">Atracción de inversión y empresas del sector biotech y farma.</li>
+				<li class="mb-15">Turismo profesional y científico, con impacto directo en hoteles, restauración y comercio local.</li>
+				<li class="mb-15">Creación de un referente anual (tipo "Cannabis Science Forum Badalona") que posicione la ciudad en el calendario global de ferias especializadas.</li>
+				<li class="mb-15">Dinamización de la economía local, generación de empleo y oportunidades para jóvenes profesionales.</li>
+			</ul>
+		</div>
+	</section>
 </Layout>

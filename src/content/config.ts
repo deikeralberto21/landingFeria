@@ -7,7 +7,7 @@ const postCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     img: z.string().optional(),
-    subtitle: z.string(),
+    subtitle: z.string().optional(),
     imgsContent: z.array(z.string()),
   }),
 });

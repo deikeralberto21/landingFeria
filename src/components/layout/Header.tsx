@@ -33,7 +33,7 @@ const Header: FC = () => {
                                     className={`flex items-center rounded-2xl px-3 py-2 sm:px-4 sm:py-2 border transition-all duration-300
                                         ${
                                             index === 0
-                                                ? 'hover:border-blue-400 hover:bg-blue-400 text-blue-400 hover:text-white'
+                                                ? 'border-blue-400 bg-blue-400 text-blue-400 text-white'
                                                 : 'bg-appText border-transparent text-white'
                                         }`}
                                 >

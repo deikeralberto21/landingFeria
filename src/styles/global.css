@@ -1,1 +1,18 @@
 @import "tailwindcss";
+
+.markdown-content p {
+margin-bottom: 1rem; /* separación entre párrafos */
+line-height: 1.6;     /* altura de línea para mejor lectura */
+}
+
+.markdown-content p strong {
+display: block;
+margin-bottom: 0.5rem; /* espacio debajo de los títulos en negrita */
+}
+
+.markdown-content ul,
+.markdown-content ol {
+margin-bottom: 1rem;   /* espacio después de listas */
+padding-left: 1.5rem;  /* indentado de lista */
+list-style: circle;
+}
