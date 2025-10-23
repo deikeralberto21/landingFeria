@@ -5,8 +5,4 @@ subtitle : 'CDías: La Universidad Pompeu Fabra creó hace varios años el “Ca
 imgsContent: [
 ]
 ---
-* **Asistencia**: En la edición de 2024, los C-Days reunieron a más de 3.900 profesionales y visitantes, incluyendo expertos internacionales, académicos y representantes de empresas del sector.
-* **Expositores**: Contaron con alrededor de 200 expositores, abarcando
-desde startups hasta instituciones académicas y organizaciones no
-gubernamentales
-* **Participación empresarial:** El evento ha servido como plataforma para que estudiantes y emprendedores presenten proyectos innovadores ante inversores, como se evidenció en el C-Investors Day, donde se expusieron iniciativas en agrotecnia, cosmética cannábica y consultoría reguladora.
+**C-Days 2024:** 3.900+ profesionales, 200+ expositores (startups, academia, ONGs). Plataforma para presentar proyectos innovadores ante inversores en C-Investors Day.

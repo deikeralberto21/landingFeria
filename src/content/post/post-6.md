@@ -5,30 +5,10 @@ subtitle : 'Impacto económico para Badalona Impacto económico y de imagen para
 imgsContent: [
 ]
 ---
-**Congreso Profesional**
-* Ponencias médicas y científicas.
-* Paneles regulatorios: legislación española, modelo alemán, uso compasivo.
-* Casos de éxito clínico y empresarial.
+**Formato del evento:**
+- **Congreso:** Ponencias médicas, paneles regulatorios, casos de éxito
+- **Startups:** C-Med LaunchPad, C-Investors Day, premios innovación
+- **Exposición:** Productos medicinales, farmacéuticos, cosmética, tecnología
+- **Ciudadano:** Charlas divulgativas, talleres terapéuticos
 
-**Zona Startups e Innovación**
-
-* C-Med LaunchPad: pitch de startups cannábicas biomédicas.
-* C-Investors Day con fondos de salud y biotech.
-* Premios a la innovación terapéutica.
-
-**Área Expositiva & Feria**
-
-* Productos medicinales, farmacéuticos, cosmética, cultivo técnico, tecnología sanitaria.
-* Stand institucional (Ayuntamiento, Universidad, hospitales, asociaciones de pacientes).
-
-**Espacio Ciudadano**
-
-* Charlas divulgativas, talleres terapéuticos (CBD, fisioterapia, ansiedad).
-* Espacios seguros, éticos y educativos.
-
-**Alianzas Clave**
-
-* Institucional: Ayuntamiento de Badalona, Generalitat, Fira de Barcelona, Diputació de Barcelona.
-* Académico-sanitario: Can Ruti, UB, UAB, UPF, Fundació Josep Carreras.
-* Empresarial: Farmaindustria, Biocat, ACCIÓ, Clúster Salut Mental Catalunya.
-* ONGs y asociaciones de pacientes
+**Alianzas:** Ayuntamiento Badalona, Generalitat, Fira Barcelona, Can Ruti, UB, UAB, UPF, Farmaindustria, Biocat, ONGs.
