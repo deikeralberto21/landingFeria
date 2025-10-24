@@ -160,7 +160,7 @@ const Formulario = () => {
       
       <form
         onSubmit={handleSubmit}
-        className="grid grid-cols-1 mt-15 gap-6 bg-[#E3E1DC] border border-[#B0AEAB] rounded-[14px] p-6 lg:p-8"
+        className="grid grid-cols-1 mt-15 gap-6 bg-[#E3E1DC] border text-black border-[#B0AEAB] rounded-[14px] p-6 lg:p-8"
       >
       <div className="flex flex-col">
         <label className="mb-2 font-medium">Nombre completo</label>
