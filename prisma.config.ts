@@ -9,6 +9,6 @@ export default defineConfig({
   },
   engine: "classic",
   datasource: {
-    url: "mysql://root:@127.0.0.1:3306/landing",
+    url: env("DATABASE_URL"),
   },
 });

@@ -14,10 +14,11 @@ const Header: FC = () => {
 
     return (
         <header className="relative z-50">
-            <nav>
-              
+                <nav 
+                    className="fixed w-full  backdrop-blur-md text-white"
+                >
                 {/* Main header */}
-                <div className="py-4 lg:py-6 border-b border-gray-400">
+                <div className="py-4 lg:py-5 ">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
                         {/* Logo */}
                         <a href="/" className="flex items-center hover:text-blue-400" aria-label="Home page">
