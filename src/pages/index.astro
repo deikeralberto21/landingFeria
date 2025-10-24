@@ -6,11 +6,49 @@ import Welcome from '../components/home-page/welcome.tsx'
 <Layout title={`Inicio - C-Med Days Badalona 2026`}>
 	<Welcome transition:name="hero"/>
 	
+
+	
 	<!-- Content Sections -->
-	<div class="max-w-6xl mx-auto px-6">
-		
+	<div class="px-30">
+		<section style="height: 75vh;" class="w-full">
+			<div class="h-full flex flex-col lg:flex-row">
+				<!-- Columna izquierda - Imagen placeholder -->
+				<div class="w-full lg:w-1/2 h-full relative">
+					<div class="h-full w-full bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center">
+						<div class="text-center text-white">
+							<div class="w-32 h-32 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center">
+								<svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
+									<path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
+								</svg>
+							</div>
+							<p class="text-lg font-medium">Imagen del Evento</p>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Columna derecha - Texto descriptivo -->
+				<div class="w-full lg:w-1/2 h-full bg-black/80 flex items-center justify-center p-8">
+					<div class="text-white max-w-lg">
+						<h2 class="text-4xl font-extrabold mb-6 text-amber-400">C-Med Days Badalona 2026</h2>
+						<p class="text-lg mb-4 leading-relaxed">
+							Únete a nosotros en el evento más importante del sector médico y cannabis en Badalona. 
+							Una experiencia única que combina innovación, conocimiento y networking de primer nivel.
+						</p>
+						<p class="text-base mb-6 text-gray-300">
+							Descubre las últimas tendencias, conoce a los expertos más destacados del sector 
+							y forma parte de la revolución en el campo de la medicina y el cannabis medicinal.
+						</p>
+						<button type="button" class="focus:outline-none text-black bg-amber-400 hover:bg-amber-500 font-medium text-sm px-6 py-3 rounded-lg transition-colors duration-200">
+							Más Información
+						</button>
+					</div>
+				</div>
+				
+				
+			</div>
+		</section>
 		<!-- Badalona Section -->
-		<section class="flex h-screen items-center gap-5">
+		<section style="max-height: max-content;height:100vh;" class="w-full flex flex-wrap justify-center items-center gap-5">
 			
 			
 			<div class="container-img h-9/12 w-sm ">
@@ -41,6 +79,7 @@ import Welcome from '../components/home-page/welcome.tsx'
 					</div>
 				</div>
 			</div>
+			
 			<div class="container-img h-9/12 w-sm ">
 				<div style="background-image: url('https://i.pinimg.com/736x/b9/a3/0c/b9a30c8a35f9be8b976663705cde76f8.jpg');" class=" relative h-full w-full bg-cover bg-center bg-no-repeat preview-img-rotate">
 					
@@ -55,9 +94,9 @@ import Welcome from '../components/home-page/welcome.tsx'
 					</div>
 				</div>
 			</div>
-			
 			
 		</section>
+
 
 	</div>
 </Layout>

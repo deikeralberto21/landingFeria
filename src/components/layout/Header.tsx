@@ -31,13 +31,7 @@ const Header: FC = () => {
                                 <a
                                     key={index}
                                     href={item.href}
-                                    className={`flex items-center rounded-2xl px-3 py-2 sm:px-4 sm:py-2 border transition-all duration-300
-                                        ${
-                                            index === 0
-                                                ? 'border-blue-400 bg-blue-400 text-blue-400 text-white'
-                                                : 'bg-appText border-transparent text-white'
-                                        }`}
-                                >
+                                    className={`flex items-center rounded-2xl px-3 py-2 sm:px-4 sm:py-2 border transition-all duration-300 bg-amber-400 hover:bg-amber-500`}>
                                     <span className="text-xs sm:text-sm font-medium mr-1.5 sm:mr-2">
                                         {item.label}
                                     </span>

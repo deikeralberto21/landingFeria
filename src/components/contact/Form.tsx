@@ -242,7 +242,7 @@ const Formulario = () => {
         disabled={!esFormularioValido() || isSubmitting}
         className={`rounded-[32px] py-3 px-6 text-sm font-medium transition-colors w-full lg:w-auto ${
           esFormularioValido() && !isSubmitting
-            ? 'bg-green-700 text-white hover:bg-appAccent/90 cursor-pointer'
+            ? 'bg-amber-400 hover:bg-amber-500 text-white hover:bg-appAccent/90 cursor-pointer'
             : 'bg-gray-400 text-gray-600 cursor-not-allowed'
         }`}
       >
