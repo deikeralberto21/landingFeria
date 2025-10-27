@@ -1,0 +1,31 @@
+
+.container-img {
+  perspective: 1000px; /* Aquí debe ir la perspectiva */
+}
+
+.preview-img-rotate {
+  transition: 0.5s;
+  transform-style: preserve-3d; /* Esto va SIEMPRE aquí, no en el hover */
+  position: relative;
+}
+
+.preview-img-rotate > div {
+  backface-visibility: hidden; /* evita que se vea al revés */
+}
+
+.content-img-rotate {
+  opacity: 0;
+  transition: 0.6s;
+  transform: rotateX(180deg); /* la cara trasera ya volteada */
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.container-img:hover .preview-img-rotate {
+  transform: rotateX(180deg); /* ahora sí rota en 3D */
+}
+
+.container-img:hover .content-img-rotate {
+  opacity: 1;
+}

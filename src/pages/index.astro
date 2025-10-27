@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Welcome from '../components/home-page/welcome.tsx'
+import CardSection from '../components/home-page/card.tsx'
+import Clock from '../components/clock/clock.tsx'
 ---
 
 <Layout title={`Inicio - C-Med Days Badalona 2026`}>
@@ -10,93 +12,51 @@ import Welcome from '../components/home-page/welcome.tsx'
 	
 	<!-- Content Sections -->
 	<div class="px-30">
-		<section style="height: 75vh;" class="w-full">
+		<section class="w-full min-h-[50vh] lg:h-[65vh]">
 			<div class="h-full flex flex-col lg:flex-row">
-				<!-- Columna izquierda - Imagen placeholder -->
-				<div class="w-full lg:w-1/2 h-full relative">
-					<div class="h-full w-full bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center">
-						<div class="text-center text-white">
-							<div class="w-32 h-32 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center">
-								<svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
-									<path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
-								</svg>
-							</div>
-							<p class="text-lg font-medium">Imagen del Evento</p>
-						</div>
-					</div>
-				</div>
 				
-				<!-- Columna derecha - Texto descriptivo -->
-				<div class="w-full lg:w-1/2 h-full bg-black/80 flex items-center justify-center p-8">
-					<div class="text-white max-w-lg">
-						<h2 class="text-4xl font-extrabold mb-6 text-amber-400">C-Med Days Badalona 2026</h2>
-						<p class="text-lg mb-4 leading-relaxed">
+				<!-- Columna izquierda -->
+				<div class="w-full lg:w-1/2 h-[40vh] lg:h-full relative">
+					<div 
+						class="h-full w-full bg-no-repeat bg-center bg-contain" 
+						style="background-image: url('https://www.shutterstock.com/image-vector/leaf-cannabis-illustration-logo-mascot-600nw-2451081719.jpg');"
+					></div>
+				</div>
+
+				<!-- Columna derecha -->
+				<div class="w-full lg:w-1/2 h-auto lg:h-full bg-black/80 flex items-center justify-center p-6 sm:p-10">
+					<div class="text-white max-w-lg text-center lg:text-left">
+						<h2 class="text-3xl sm:text-4xl font-extrabold mb-6 text-green-400">
+							C-Med Days Badalona 2026!
+						</h2>
+
+						<p class="text-base sm:text-lg mb-4 leading-relaxed">
 							Únete a nosotros en el evento más importante del sector médico y cannabis en Badalona. 
 							Una experiencia única que combina innovación, conocimiento y networking de primer nivel.
 						</p>
-						<p class="text-base mb-6 text-gray-300">
+
+						<p class="text-sm sm:text-base mb-6 text-gray-300">
 							Descubre las últimas tendencias, conoce a los expertos más destacados del sector 
 							y forma parte de la revolución en el campo de la medicina y el cannabis medicinal.
 						</p>
-						<button type="button" class="focus:outline-none text-black bg-amber-400 hover:bg-amber-500 font-medium text-sm px-6 py-3 rounded-lg transition-colors duration-200">
-							Más Información
-						</button>
+						<a href="#activities">
+							<button 
+								type="button" 
+								class="focus:outline-none cursor-pointer text-black bg-green-400 hover:bg-green-500 font-medium text-sm px-6 py-3 rounded-lg transition-colors duration-200"
+							>
+								Más Información
+							</button>
+						</a>
 					</div>
 				</div>
-				
-				
+
 			</div>
-		</section>
-		<!-- Badalona Section -->
-		<section style="max-height: max-content;height:100vh;" class="w-full flex flex-wrap justify-center items-center gap-5">
-			
-			
-			<div class="container-img h-9/12 w-sm ">
-				<div style="background-image: url('https://i.pinimg.com/736x/b9/a3/0c/b9a30c8a35f9be8b976663705cde76f8.jpg');" class=" relative h-full w-full bg-cover bg-center bg-no-repeat preview-img-rotate">
-					
-					<div class="h-full text-center w-full font-sans  text-white bg-black/70 flex flex-col justify-center items-center">
-						<h3 class="text-2xl font-extrabold">Texto title</h3>
-						<p class="w-9/12">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, inventore!</p>
-					</div>
-					<div class=" text-center content-img-rotate top-0 left-0 h-full w-full text-black bg-white absolute rotate-x-180 text-dark flex flex-col justify-center items-center">
-						<h3 class="text-2xl font-extrabold">Texto title</h3>
-						<p class="w-9/12">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, inventore!</p>
-						<button type="button" class="focus:outline-none text-white bg-amber-400 mt-5 cursor-pointer hover:bg-amber-500 font-medium text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900">Button</button>
-					</div>
-				</div>
-			</div>
-			<div class="container-img h-9/12 w-sm ">
-				<div style="background-image: url('https://i.pinimg.com/736x/b9/a3/0c/b9a30c8a35f9be8b976663705cde76f8.jpg');" class=" relative h-full w-full bg-cover bg-center bg-no-repeat preview-img-rotate">
-					
-					<div class="h-full text-center w-full font-sans  text-white bg-black/70 flex flex-col justify-center items-center">
-						<h3 class="text-2xl font-extrabold">Texto title</h3>
-						<p class="w-9/12">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, inventore!</p>
-					</div>
-					<div class=" text-center content-img-rotate top-0 left-0 h-full w-full text-black bg-white absolute rotate-x-180 text-dark flex flex-col justify-center items-center">
-						<h3 class="text-2xl font-extrabold">Texto title</h3>
-						<p class="w-9/12">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, inventore!</p>
-						<button type="button" class="focus:outline-none text-white bg-amber-400 mt-5 cursor-pointer hover:bg-amber-500 font-medium text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900">Button</button>
-					</div>
-				</div>
-			</div>
-			
-			<div class="container-img h-9/12 w-sm ">
-				<div style="background-image: url('https://i.pinimg.com/736x/b9/a3/0c/b9a30c8a35f9be8b976663705cde76f8.jpg');" class=" relative h-full w-full bg-cover bg-center bg-no-repeat preview-img-rotate">
-					
-					<div class="h-full text-center w-full font-sans  text-white bg-black/70 flex flex-col justify-center items-center">
-						<h3 class="text-2xl font-extrabold">Texto title</h3>
-						<p class="w-9/12">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, inventore!</p>
-					</div>
-					<div class=" text-center content-img-rotate top-0 left-0 h-full w-full text-black bg-white absolute rotate-x-180 text-dark flex flex-col justify-center items-center">
-						<h3 class="text-2xl font-extrabold">Texto title</h3>
-						<p class="w-9/12">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, inventore!</p>
-						<button type="button" class="focus:outline-none text-white bg-amber-400 mt-5 cursor-pointer hover:bg-amber-500 font-medium text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900">Button</button>
-					</div>
-				</div>
-			</div>
-			
 		</section>
 
+		<Clock targetDate="2025-11-28 10:00:00" client:load />
+
+		<!-- Badalona Section -->
+		<CardSection/>
 
 	</div>
 </Layout>

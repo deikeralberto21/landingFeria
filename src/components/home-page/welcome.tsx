@@ -6,7 +6,7 @@ export default function Welcome () {
         <section 
             style={{
                 'height':'70vh',
-                'backgroundImage': 'url("img/spanabis.jpg")',
+                'backgroundImage': 'url("https://t4.ftcdn.net/jpg/07/25/81/73/360_F_725817391_qtpt5AlJyJ7I7IFjqyR3Kldkq7wwBEZ9.jpg")',
                 'backgroundSize': 'cover',
                 'backgroundPosition': 'center',
                 'backgroundRepeat': 'no-repeat',
